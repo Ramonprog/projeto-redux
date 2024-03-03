@@ -24,9 +24,22 @@ export const userSlice = createSlice({
         user: null,
       };
     },
+    addressUser: (state, action) => {
+      if (action.payload.location === "" || action.payload.number === "") {
+        return alert("preencha todos os campos");
+      }
+
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: action.payload,
+        },
+      };
+    },
   },
 });
 
-export const { createUser, logoutUser } = userSlice.actions;
+export const { createUser, logoutUser, addressUser } = userSlice.actions;
 
 export default userSlice.reducer;

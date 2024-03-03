@@ -37,7 +37,9 @@ export function Home() {
 
             <strong className={styles.addressLabel}>Endereço atual:</strong>
             <div className={styles.address}>
-              <p>Rua centro, n 123</p>
+              <p>
+                {user?.address.location}, {user?.address.number}
+              </p>
 
               <button onClick={handleDeleteAddress}>Deletar endereço</button>
             </div>

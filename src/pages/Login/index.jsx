@@ -14,7 +14,7 @@ export function Login() {
 
   function handleLogin(e) {
     e.preventDefault();
-
+    if (name.trim().length < 3) return alert("preencha um nome válido");
     if (name === "" || email === "") return alert("Digite os dados do user");
 
     dispatch(createUser({ name, email }));
