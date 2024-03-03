@@ -29,6 +29,10 @@ export const userSlice = createSlice({
         return alert("preencha todos os campos");
       }
 
+      if (state.user === null) {
+        return alert("você precisa estar logado para adicionar um endereço");
+      }
+
       return {
         ...state,
         user: {
@@ -37,9 +41,19 @@ export const userSlice = createSlice({
         },
       };
     },
+    deletAddress: (state) => {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: null,
+        },
+      };
+    },
   },
 });
 
-export const { createUser, logoutUser, addressUser } = userSlice.actions;
+export const { createUser, logoutUser, addressUser, deletAddress } =
+  userSlice.actions;
 
 export default userSlice.reducer;

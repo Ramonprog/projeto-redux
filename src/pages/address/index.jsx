@@ -8,11 +8,9 @@ export function Address() {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const [addressName, setAddressName] = useState(
-    user.address ? user.address.location : ""
-  );
+  const [addressName, setAddressName] = useState(user?.address?.location ?? "");
   const [addressNumber, setAddressNumber] = useState(
-    user.address ? user.address.number : ""
+    user?.address?.number ?? ""
   );
 
   function handleRegisterAddress() {
